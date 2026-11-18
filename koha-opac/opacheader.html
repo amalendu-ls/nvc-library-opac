@@ -1,0 +1,72 @@
+<!-- Paste into: Tools > HTML customizations > opacheader (Default / English) -->
+
+<!-- Brand header -->
+<div class="nvc-brand">
+  <div class="nvc-wrap">
+    <a class="nvc-crest" href="/cgi-bin/koha/opac-main.pl" aria-label="Library home">
+      <!-- LOGO: upload nvc-logo-256.png in Koha (Tools > Upload, tick "Allow public downloads"),
+           then replace the src below with the link Koha gives, e.g.
+           /cgi-bin/koha/opac-retrieve-file.pl?id=xxxxxxxx -->
+      <img src="/cgi-bin/koha/opac-retrieve-file.pl?id=<UPLOADED_FILE_ID>" alt="Nabadwip Vidyasagar College emblem" width="64" height="64">
+    </a>
+    <div class="nvc-brand__text">
+      <p class="nvc-brand__name">Nabadwip Vidyasagar College Central Library</p>
+      <p class="nvc-brand__sub">Online Public Access Catalogue</p>
+    </div>
+    <div class="nvc-brand__contact">
+      <a href="tel:+910000000000"><i class="fa fa-phone"></i> +91 00000 00000</a>
+      <a href="mailto:librarian@example.edu"><i class="fa fa-envelope"></i> librarian@example.edu</a>
+    </div>
+  </div>
+</div>
+
+<!-- Main navigation (collapses to a Menu button on tablets and phones) -->
+<nav class="nvc-nav" id="nvc-nav" aria-label="Library">
+  <div class="nvc-wrap">
+    <button class="nvc-nav__toggle" type="button" aria-expanded="false" aria-controls="nvc-menu">
+      <span>Menu</span><i class="fa fa-bars bars" aria-hidden="true"></i>
+    </button>
+    <ul class="nvc-nav__list" id="nvc-menu">
+      <li><a href="/cgi-bin/koha/opac-main.pl">Home</a></li>
+      <li><a href="https://nvc.ac.in/library/">Library website</a></li>
+      <li><a href="https://nvc.ac.in/library/About-library.aspx">About</a></li>
+      <li><a href="https://nvc.ac.in/library/Library-rules-regulations.aspx">Rules</a></li>
+      <li><a href="https://nvc.ac.in/library/Library-collection.aspx">Collection</a></li>
+      <li><a href="https://nvc.ac.in/library/Library-layout.aspx">Layout</a></li>
+      <li><a href="https://repo.nvc.ac.in/" target="_blank" rel="noopener">Knowledge Hub</a></li>
+      <li><a href="https://nvc.irins.org/" target="_blank" rel="noopener">Faculty profiles</a></li>
+      <li><a href="https://nvc.ac.in/library/Feedback.aspx">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Optional notice. Uncomment and edit when there is an announcement.
+<div class="nvc-notice"><div class="nvc-wrap"><b>Notice</b><span>Write the announcement here.</span></div></div>
+-->
+
+<!-- Search banner (shown on the home page only; Koha's own search bar is used on other pages) -->
+<section class="nvc-hero">
+  <div class="nvc-wrap">
+    <h2>Search the library catalogue</h2>
+    <p class="lead">Books, reference works, journals and rare volumes held by the NVC Central Library, with shelf location and current availability.</p>
+    <form class="nvc-search" action="/cgi-bin/koha/opac-search.pl" method="get" role="search">
+      <label class="visually-hidden" for="nvc-idx">Search in</label>
+      <select id="nvc-idx" name="idx">
+        <option value="kw">All fields</option>
+        <option value="ti">Title</option>
+        <option value="au">Author</option>
+        <option value="su">Subject</option>
+        <option value="nb">ISBN</option>
+        <option value="se">Series</option>
+        <option value="callnum">Call number</option>
+      </select>
+      <label class="visually-hidden" for="nvc-q">Search terms</label>
+      <input id="nvc-q" name="q" type="search" placeholder="Enter title, author, subject or keyword" autocomplete="off">
+      <button type="submit"><i class="fa fa-magnifying-glass" aria-hidden="true"></i> Search</button>
+    </form>
+    <div class="nvc-hero__links">
+      <a href="/cgi-bin/koha/opac-search.pl"><i class="fa fa-sliders" aria-hidden="true"></i> Advanced search</a>
+      <a href="/cgi-bin/koha/opac-authorities-home.pl"><i class="fa fa-user-pen" aria-hidden="true"></i> Browse by author</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,147 @@
+<!-- Paste into: Tools > HTML customizations > OpacMainUserBlock (Default / English)
+     Shown on the OPAC home page, below the search banner. Facts are from nvc.ac.in/library (Oct 2026). -->
+<div class="nvc-wrap">
+
+
+  <!-- Services -->
+  <section class="nvc-section">
+    <div class="nvc-section__head">
+      <div><span class="nvc-eyebrow">Online services</span><h3>What you can do here</h3></div>
+    </div>
+    <div class="nvc-services">
+      <a class="nvc-service" href="/cgi-bin/koha/opac-search.pl?q=*&amp;sort_by=acqdate_dsc">
+        <span class="nvc-service__icon"><i class="fa fa-book"></i></span>
+        <span><b>New arrivals</b><span>Recently added books, newest first.</span></span></a>
+      <a class="nvc-service" href="/cgi-bin/koha/opac-user.pl">
+        <span class="nvc-service__icon"><i class="fa fa-user"></i></span>
+        <span><b>My account</b><span>Your current loans, due dates and fines.</span></span></a>
+      <a class="nvc-service" href="/cgi-bin/koha/opac-user.pl#opac-user-checkouts">
+        <span class="nvc-service__icon"><i class="fa fa-rotate"></i></span>
+        <span><b>Renew online</b><span>Extend your loans without visiting the desk.</span></span></a>
+      <a class="nvc-service" href="/cgi-bin/koha/opac-user.pl#opac-user-holds">
+        <span class="nvc-service__icon"><i class="fa fa-bookmark"></i></span>
+        <span><b>Reserve a book</b><span>Place a hold on a book that is checked out.</span></span></a>
+      <a class="nvc-service" href="/cgi-bin/koha/opac-suggestions.pl">
+        <span class="nvc-service__icon"><i class="fa fa-cart-plus"></i></span>
+        <span><b>Suggest a purchase</b><span>Ask the library to buy a book you need.</span></span></a>
+      <a class="nvc-service" href="/cgi-bin/koha/opac-shelves.pl?op=list&amp;public=1">
+        <span class="nvc-service__icon"><i class="fa fa-list-ul"></i></span>
+        <span><b>Reading lists</b><span>Book lists prepared by the library.</span></span></a>
+      <a class="nvc-service" href="https://repo.nvc.ac.in/handle/123456789/20" target="_blank" rel="noopener">
+        <span class="nvc-service__icon"><i class="fa fa-file-lines"></i></span>
+        <span><b>Question papers</b><span>Previous-year UG &amp; PG papers, CBCS and NEP.</span></span></a>
+    </div>
+  </section>
+
+  <!-- Research: repository + faculty profiles -->
+  <section class="nvc-section">
+    <div class="nvc-section__head">
+      <div><span class="nvc-eyebrow">Research &amp; scholarship</span><h3>Institutional repository and faculty</h3></div>
+    </div>
+    <div class="nvc-research">
+      <div class="nvc-panel nvc-repo">
+        <div class="nvc-repo__head">
+          <span class="nvc-service__icon"><i class="fa fa-building-columns"></i></span>
+          <div><h4>Knowledge Hub</h4><p>The institutional repository of NVC, maintained by the Central Library: question papers, faculty research, quality-assurance records and campus activity, open to all.</p></div>
+        </div>
+        <form class="nvc-minisearch" action="https://repo.nvc.ac.in/search" method="get" target="_blank" role="search">
+          <label class="visually-hidden" for="nvc-repo-q">Search the repository</label>
+          <input id="nvc-repo-q" name="query" type="search" placeholder="Search question papers, publications, reports">
+          <button type="submit"><i class="fa fa-magnifying-glass" aria-hidden="true"></i><span class="visually-hidden">Search</span></button>
+        </form>
+        <ul class="nvc-repo__list">
+          <li><a href="https://repo.nvc.ac.in/handle/123456789/20" target="_blank" rel="noopener">Old Question Paper Archive</a></li>
+          <li><a href="https://repo.nvc.ac.in/handle/123456789/18" target="_blank" rel="noopener">Faculty Publications</a></li>
+          <li><a href="https://repo.nvc.ac.in/handle/123456789/16" target="_blank" rel="noopener">Faculty Profiles</a></li>
+          <li><a href="https://repo.nvc.ac.in/handle/123456789/35" target="_blank" rel="noopener">Teachers' Journal</a></li>
+          <li><a href="https://repo.nvc.ac.in/handle/123456789/24" target="_blank" rel="noopener">Quality Assurance &amp; Ranking</a></li>
+          <li><a href="https://repo.nvc.ac.in/handle/123456789/7" target="_blank" rel="noopener">Extension, Cultural &amp; Sports</a></li>
+        </ul>
+        <a class="nvc-link" href="https://repo.nvc.ac.in/" target="_blank" rel="noopener">Visit Knowledge Hub <i class="fa fa-arrow-right"></i></a>
+      </div>
+      <div class="nvc-stack">
+        <a class="nvc-panel nvc-feature" href="https://nvc.irins.org/" target="_blank" rel="noopener">
+          <span class="nvc-service__icon"><i class="fa fa-user-graduate"></i></span>
+          <div><h4>Faculty profiles: IRINS</h4><p>NVC's faculty research profiles, publications and scholarly network, powered by INFLIBNET's IRINS.</p><span class="nvc-link">nvc.irins.org <i class="fa fa-arrow-up-right-from-square"></i></span></div>
+        </a>
+        <a class="nvc-panel nvc-feature" href="https://vidwan.inflibnet.ac.in/profiles" target="_blank" rel="noopener">
+          <span class="nvc-service__icon"><i class="fa fa-magnifying-glass-chart"></i></span>
+          <div><h4>Vidwan expert database</h4><p>India's national directory of verified academics and researchers. Find subject experts and their publications.</p><span class="nvc-link">vidwan.inflibnet.ac.in <i class="fa fa-arrow-up-right-from-square"></i></span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visit, borrowing, help -->
+  <section class="nvc-section">
+    <div class="nvc-section__head">
+      <div><span class="nvc-eyebrow">Visit</span><h3>Using the library</h3></div>
+      <a href="https://nvc.ac.in/library/Library-rules-regulations.aspx">Full rules &amp; regulations →</a>
+    </div>
+    <div class="nvc-panels nvc-panels--2">
+      <div class="nvc-panel">
+        <h4>Plan your visit</h4>
+        <ul class="nvc-list">
+          <li><i class="fa fa-clock"></i><div><b>10:30 AM – 5:00 PM</b><span>All working days. Closed on national and gazetted holidays.</span></div></li>
+          <li><i class="fa fa-id-card"></i><div><b>Library card required</b><span>Open to all students and staff of the college. Enrol with the <a href="https://nvc.ac.in/library/Pdf/Download/Membership%20Form.pdf" target="_blank" rel="noopener">membership form</a>.</span></div></li>
+          <li><i class="fa fa-map"></i><div><b>Finding a book</b><span>Note the call number, then check the <a href="https://nvc.ac.in/library/Library-layout.aspx">library layout</a>.</span></div></li>
+          <li><i class="fa fa-copy"></i><div><b>Photocopying</b><span>Available in the library.</span></div></li>
+        </ul>
+      </div>
+      <div class="nvc-panel">
+        <h4>Borrowing limits</h4>
+        <table class="nvc-table">
+          <thead><tr><th>Member</th><th>Books</th><th>Days</th><th>Renewals</th></tr></thead>
+          <tbody>
+            <tr><td>Students (Major course)</td><td>2</td><td>30</td><td>3 × 15</td></tr>
+            <tr><td>PG students</td><td>2</td><td>30</td><td>3 × 15</td></tr>
+            <tr><td>Teachers (Asst./Assoc./Prof.)</td><td>15</td><td>60</td><td>3 × 30</td></tr>
+            <tr><td>State Aided College Teachers</td><td>15</td><td>60</td><td>3 × 30</td></tr>
+            <tr><td>Non-teaching staff</td><td>5</td><td>30</td><td>3 × 20</td></tr>
+            <tr><td>Non-teaching staff (casual)</td><td>2</td><td>15</td><td>3 × 15</td></tr>
+            <tr><td>Academic counsellors</td><td>3</td><td>15</td><td>3 × 15</td></tr>
+          </tbody>
+        </table>
+        <p class="nvc-note">Renewals: number allowed × days added each time. Renew online from <a href="/cgi-bin/koha/opac-user.pl">My account</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- E-resources -->
+  <section class="nvc-section">
+    <div class="nvc-section__head">
+      <div><span class="nvc-eyebrow">Beyond the shelves</span><h3>E-resources</h3></div>
+      <a href="https://nvc.ac.in/library/E-books.aspx">All e-resources →</a>
+    </div>
+    <div class="nvc-eres">
+      <a href="https://ndl.iitkgp.ac.in/" target="_blank" rel="noopener"><span><b>National Digital Library of India</b><small>Books, articles and lectures</small></span><i class="fa fa-arrow-up-right-from-square"></i></a>
+      <a href="https://shodhganga.inflibnet.ac.in/" target="_blank" rel="noopener"><span><b>Shodhganga</b><small>Theses from Indian universities</small></span><i class="fa fa-arrow-up-right-from-square"></i></a>
+      <a href="https://epgp.inflibnet.ac.in/" target="_blank" rel="noopener"><span><b>e-PG Pathshala</b><small>UGC e-content by subject</small></span><i class="fa fa-arrow-up-right-from-square"></i></a>
+      <a href="https://swayam.gov.in/" target="_blank" rel="noopener"><span><b>SWAYAM</b><small>Free online courses</small></span><i class="fa fa-arrow-up-right-from-square"></i></a>
+      <a href="https://indcat.inflibnet.ac.in/" target="_blank" rel="noopener"><span><b>IndCAT</b><small>Union catalogue of Indian libraries</small></span><i class="fa fa-arrow-up-right-from-square"></i></a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="nvc-section">
+    <div class="nvc-section__head">
+      <div><span class="nvc-eyebrow">Help</span><h3>Frequently asked questions</h3></div>
+      <a href="https://nvc.ac.in/library/FAQ.aspx">More FAQs →</a>
+    </div>
+    <div class="nvc-faq">
+      <details><summary>How do I find where a book is kept?</summary>
+        <p>Open the book's record. The Holdings table shows its call number and status. Use the <a href="https://nvc.ac.in/library/Library-layout.aspx">library layout</a> to find the rack.</p></details>
+      <details><summary>The book is checked out. Can I reserve it?</summary>
+        <p>Yes. Log in, open the record and choose <b>Place hold</b>. The library will tell you when it is returned.</p></details>
+      <details><summary>How do I renew my books?</summary>
+        <p>Log in and open <b>My account</b>. Select the books and choose <b>Renew</b>. Each loan can be renewed up to 3 times (see the borrowing table for the days added). A book reserved by someone else cannot be renewed.</p></details>
+      <details><summary>How do I become a member?</summary>
+        <p>Fill in the <a href="https://nvc.ac.in/library/Pdf/Download/Membership%20Form.pdf" target="_blank" rel="noopener">membership form</a>, get it signed by the recommending authority, and submit it to the Librarian. You will receive a library card.</p></details>
+      <details><summary>I lost my library card or a book. What now?</summary>
+        <p>Report it to the Librarian. A duplicate card costs ₹30. A lost book must be replaced with the current edition, or its recorded price paid three times over if it is out of print. Use the <a href="https://nvc.ac.in/library/Pdf/Download/Book%20Lost%20Report%20Form.pdf" target="_blank" rel="noopener">book lost report form</a>.</p></details>
+      <details><summary>Where can I find old question papers?</summary>
+        <p>In the <a href="https://repo.nvc.ac.in/handle/123456789/20" target="_blank" rel="noopener">Old Question Paper Archive</a> of Knowledge Hub, the college repository.</p></details>
+    </div>
+  </section>
+
+</div>

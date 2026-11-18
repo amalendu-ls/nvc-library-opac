@@ -1,0 +1,343 @@
+/* =====================================================================
+   NVC Central Library: OPAC theme for Koha 25.11
+   Paste into: Administration > System preferences > OPACUserCSS
+   (Replace everything currently in that preference.)
+   ===================================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap");
+
+:root {
+  --navy: #0f2a4a;
+  --navy-2: #163a63;
+  --navy-3: #1e4d82;
+  --gold: #c9a227;
+  --gold-ink: #7f6200;   /* darker gold for text on light backgrounds (readable contrast) */
+  --ink: #1d2733;
+  --muted: #5f6b7a;
+  --line: #dfe4ea;
+  --soft: #f5f7fa;
+  --white: #ffffff;
+  --radius: 10px;
+  --shadow: 0 1px 2px rgba(15,42,74,.06), 0 8px 24px rgba(15,42,74,.08);
+  --wrap: 1200px;
+}
+
+/* ---------- Base ---------- */
+body { background: var(--soft); color: var(--ink); font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif; font-size: 15.5px; line-height: 1.6; overflow-x: hidden; }
+h1, h2, h3, h4, h5 { font-family: "Source Serif 4", Georgia, serif; color: var(--navy); letter-spacing: -.01em; }
+a { color: var(--navy-3); }
+a:hover { color: var(--navy); }
+.nvc-wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 20px; }
+
+/* ---------- Koha top bar: becomes a slim utility bar ---------- */
+#header-region .navbar { background: var(--navy); min-height: 38px; padding: 0 20px; font-size: .85rem; }
+#header-region .navbar a, #header-region .navbar .fa-icon-black { color: #dbe4ef !important; }
+#header-region .navbar a:hover { color: #fff !important; }
+#logo .navbar-brand { display: none; }
+
+/* Koha's container padding is cancelled so header blocks run edge to edge */
+#opacheader { margin: 0 -12px; }
+
+/* ---------- Brand header ---------- */
+.nvc-brand { background: var(--white); border-bottom: 1px solid var(--line); }
+.nvc-brand .nvc-wrap { display: flex; align-items: center; gap: 16px; padding-top: 16px; padding-bottom: 16px; }
+.nvc-crest { width: 64px; height: 64px; flex: none; background: #fff; border-radius: 6px; }
+.nvc-crest img { width: 100%; height: 100%; display: block; object-fit: contain; }
+.nvc-brand__text { min-width: 0; }
+.nvc-brand__name { font-family: "Source Serif 4", Georgia, serif; font-weight: 700; color: var(--navy); font-size: 1.45rem; line-height: 1.2; margin: 0; }
+.nvc-brand__sub { color: var(--muted); font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; margin: 4px 0 0; font-weight: 600; }
+.nvc-brand__contact { margin-left: auto; display: flex; gap: 22px; font-size: .88rem; color: var(--muted); }
+.nvc-brand__contact a { color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+.nvc-brand__contact i { color: var(--gold-ink); }
+
+/* ---------- Main navigation ---------- */
+.nvc-nav { background: var(--navy-2); }
+.nvc-nav .nvc-wrap { display: flex; align-items: center; }
+.nvc-nav__toggle { display: none; }
+.nvc-nav__list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; }
+.nvc-nav__list a {
+  display: block; color: #e6edf5; text-decoration: none; font-weight: 500; font-size: .93rem;
+  padding: 13px 16px; border-bottom: 3px solid transparent;
+}
+.nvc-nav__list a:hover { color: #fff; background: rgba(255,255,255,.06); }
+.nvc-nav__list a.is-active { color: #fff; border-bottom-color: var(--gold); }
+
+/* ---------- Notice (optional) ---------- */
+.nvc-notice { background: #fff9e8; border-bottom: 1px solid #f0e2b4; font-size: .9rem; }
+.nvc-notice .nvc-wrap { padding-top: 9px; padding-bottom: 9px; display: flex; gap: 10px; align-items: baseline; }
+.nvc-notice b { color: #7a5c00; text-transform: uppercase; font-size: .75rem; letter-spacing: .08em; flex: none; }
+
+/* ---------- Search hero (home page only) ---------- */
+.nvc-hero {
+  background:
+    radial-gradient(circle at 85% 20%, rgba(201,162,39,.16), transparent 40%),
+    radial-gradient(circle at 10% 90%, rgba(255,255,255,.07), transparent 45%),
+    linear-gradient(135deg, var(--navy) 0%, var(--navy-3) 100%);
+  color: #fff; padding: 56px 0 60px;
+}
+body:not(#opac-main) .nvc-hero { display: none; }
+#opac-main #opac-main-search { display: none; }      /* Koha's own search bar is hidden only on the home page */
+.nvc-hero h2 { color: #fff; font-size: clamp(1.6rem, 3.4vw, 2.4rem); margin: 0 0 8px; }
+.nvc-hero p.lead { color: #cfdbea; font-size: 1.05rem; margin: 0 0 26px; max-width: 640px; }
+.nvc-search { display: flex; background: #fff; border-radius: var(--radius); box-shadow: 0 10px 30px rgba(0,0,0,.25); overflow: hidden; max-width: 860px; }
+.nvc-search select, .nvc-search input { border: 0; font: inherit; color: var(--ink); background: #fff; }
+.nvc-search select { flex: 0 0 160px; padding: 0 14px; border-right: 1px solid var(--line); font-weight: 500; cursor: pointer; }
+.nvc-search input { flex: 1; min-width: 0; padding: 17px 18px; font-size: 1.02rem; }
+.nvc-search input:focus, .nvc-search select:focus { outline: none; background: #fbfcfe; }
+.nvc-search button {
+  flex: none; border: 0; background: var(--gold); color: var(--navy); font-weight: 700; font-size: 1rem;
+  padding: 0 30px; cursor: pointer; display: flex; align-items: center; gap: 8px;
+}
+.nvc-search button:hover { background: #d8b23a; }
+.nvc-hero__links { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 10px; }
+.nvc-hero__links a {
+  display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 999px;
+  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.22);
+  color: #fff; font-size: .86rem; font-weight: 500; text-decoration: none; transition: background .15s, border-color .15s;
+}
+.nvc-hero__links a i { color: var(--gold); font-size: .8rem; }
+.nvc-hero__links a:hover { background: rgba(255,255,255,.16); border-color: var(--gold); color: #fff; }
+
+/* ---------- Home page body ---------- */
+#opac-main .main { background: transparent; border: 0; box-shadow: none; margin-top: 0; padding: 0; }
+#opac-main .breadcrumbs, #opac-main nav[aria-label="Breadcrumb"] { display: none; }
+/* Koha puts a login box (or, when logged in, the user summary) in a right-hand column on the home page.
+   Login is already in the top bar, so the home page content uses the full width. */
+#opac-main .main .maincontent { flex: 0 0 100%; max-width: 100%; }
+#opac-main #notloggedin > .row > .col-lg-3,
+#opac-main #loggedin > .row > .col-lg-3,
+#opac-main #notloggedin > .row > .col-lg-2,      /* OpacNav sidebar: the new menu replaces it on the home page */
+#opac-main #loggedin > .row > .col-lg-2 { display: none; }
+#opac-main #moresearches { display: none; }       /* banner already has Advanced search / Browse by author */
+#OpacMainUserBlock .nvc-wrap { padding: 0 8px; }
+.nvc-section { padding: 44px 0 0; }
+.nvc-section__head { display: flex; align-items: end; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+.nvc-section__head h3 { font-size: 1.45rem; margin: 0; }
+.nvc-section__head p { margin: 4px 0 0; color: var(--muted); }
+.nvc-eyebrow { display: block; font-family: "Inter", sans-serif; font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-ink); margin-bottom: 4px; }
+
+/* Services */
+.nvc-services { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.nvc-service {
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 20px;
+  text-decoration: none; color: var(--ink); display: flex; gap: 14px; align-items: flex-start;
+  transition: border-color .15s, box-shadow .15s, transform .15s;
+}
+.nvc-service:hover { border-color: var(--navy-3); box-shadow: var(--shadow); transform: translateY(-2px); color: var(--ink); }
+.nvc-service .nvc-service__icon { width: 42px; height: 42px; flex: none; border-radius: 8px; background: #eaf0f7; color: var(--navy-3); display: grid; place-items: center; font-size: 1.05rem; }
+.nvc-service b { display: block; font-size: .98rem; color: var(--navy); margin-bottom: 2px; }
+.nvc-service span { display: block; font-size: .86rem; color: var(--muted); line-height: 1.45; }
+
+/* Info panels */
+.nvc-panels { display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; }
+.nvc-panel { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+.nvc-panel h4 { font-size: 1.15rem; margin: 0 0 14px; }
+.nvc-list { list-style: none; margin: 0; padding: 0; }
+.nvc-list li { display: flex; gap: 14px; padding: 12px 0; border-top: 1px solid var(--line); }
+.nvc-list li:first-child { border-top: 0; padding-top: 0; }
+.nvc-list i { color: var(--gold-ink); width: 18px; text-align: center; margin-top: 4px; flex: none; }
+.nvc-list b { display: block; color: var(--navy); font-weight: 600; }
+.nvc-list span { color: var(--muted); font-size: .9rem; }
+
+.nvc-section__head > a { font-size: .9rem; font-weight: 600; text-decoration: none; white-space: nowrap; display: inline-block; padding: 6px 0; }
+
+/* Research */
+.nvc-research { display: grid; grid-template-columns: 1.5fr 1fr; gap: 16px; }
+.nvc-stack { display: grid; gap: 16px; }
+.nvc-repo__head, .nvc-feature { display: flex; gap: 16px; align-items: flex-start; }
+.nvc-repo__head h4, .nvc-feature h4 { margin: 0 0 6px; }
+.nvc-repo__head p, .nvc-feature p { margin: 0; color: var(--muted); font-size: .92rem; }
+.nvc-panel .nvc-service__icon { width: 42px; height: 42px; flex: none; border-radius: 8px; background: #eaf0f7; color: var(--navy-3); display: grid; place-items: center; font-size: 1.05rem; }
+.nvc-feature { text-decoration: none; color: var(--ink); transition: border-color .15s, box-shadow .15s; }
+.nvc-feature:hover { border-color: var(--navy-3); box-shadow: var(--shadow); color: var(--ink); }
+.nvc-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 6px; padding: 6px 0; font-weight: 600; font-size: .9rem; color: var(--navy-3); text-decoration: none; }
+.nvc-link i { font-size: .75rem; }
+.nvc-minisearch { display: flex; margin: 18px 0 14px; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.nvc-minisearch input { flex: 1; min-width: 0; border: 0; padding: 11px 14px; font: inherit; }
+.nvc-minisearch input:focus { outline: none; background: #fbfcfe; }
+.nvc-minisearch button { border: 0; background: var(--navy-2); color: #fff; padding: 0 18px; cursor: pointer; }
+.nvc-minisearch button:hover { background: var(--navy); }
+.nvc-repo__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 2px 20px; }
+.nvc-repo__list a { display: block; padding: 7px 0; border-bottom: 1px dashed var(--line); text-decoration: none; font-size: .93rem; }
+.nvc-repo__list a::before { content: "\203A"; color: var(--gold-ink); font-weight: 700; margin-right: 8px; }
+
+/* Three-panel row + borrowing table */
+.nvc-panels--2 { grid-template-columns: 1fr 1.2fr; }
+.nvc-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.nvc-table th { text-align: left; font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 700; padding: 0 0 8px; border-bottom: 2px solid var(--line); }
+.nvc-table td { padding: 7px 0; border-bottom: 1px solid var(--line); }
+.nvc-table th:not(:first-child), .nvc-table td:not(:first-child) { text-align: center; width: 50px; }
+.nvc-table th:last-child, .nvc-table td:last-child { width: 74px; white-space: nowrap; }
+.nvc-note { margin: 12px 0 0; font-size: .8rem; color: var(--muted); }
+.nvc-table td:not(:first-child) { font-weight: 600; color: var(--navy); }
+.nvc-table tr:last-child td { border-bottom: 0; }
+
+/* E-resources */
+.nvc-eres { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.nvc-eres a { display: flex; justify-content: space-between; align-items: center; gap: 10px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; text-decoration: none; }
+.nvc-eres a:hover { border-color: var(--navy-3); }
+.nvc-eres b { display: block; color: var(--navy); font-weight: 600; }
+.nvc-eres small { color: var(--muted); font-size: .84rem; }
+.nvc-eres i { color: #9aa7b6; font-size: .8rem; }
+
+/* FAQ */
+.nvc-faq { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding-bottom: 50px; }
+.nvc-faq details { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 0 18px; }
+.nvc-faq summary { cursor: pointer; list-style: none; padding: 15px 0; font-weight: 600; color: var(--navy); display: flex; justify-content: space-between; gap: 12px; }
+.nvc-faq summary::-webkit-details-marker { display: none; }
+.nvc-faq summary::after { content: "+"; color: var(--gold-ink); font-size: 1.3rem; line-height: 1; }
+.nvc-faq details[open] summary::after { content: "–"; }
+.nvc-faq details p { margin: 0 0 16px; color: var(--muted); font-size: .93rem; }
+
+/* ---------- Login page ---------- */
+#opac-login-page { background: radial-gradient(circle at 95% 0%, rgba(201,162,39,.12), transparent 40%), var(--soft); }
+#opac-login-page .breadcrumbs { display: none; }
+#opac-login-page .main { background: transparent; border: 0; box-shadow: none; padding: 40px 0 56px; margin: 0; }
+#opac-login-page .main .row.justify-content-center > div { flex: 0 0 100%; max-width: 980px; }   /* widen Koha's narrow column */
+
+.nvc-login { display: grid; grid-template-columns: 1fr 1fr; background: #fff; border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 20px 50px rgba(15,42,74,.14); overflow: hidden; }
+.nvc-login > #opac-auth { padding: 44px 44px 36px; }
+
+#opac-auth h1 { font-size: 1.65rem; margin: 0 0 4px; }
+#opac-login-page #opac-auth h1::after { content: "Use your library card number and password."; display: block; margin-top: 6px; font: 400 .95rem "Inter", sans-serif; color: var(--muted); letter-spacing: 0; }
+#opac-auth .alert { border: 0; border-radius: 10px; background: #eef3f9; color: var(--navy); font-size: .92rem; margin: 18px 0 0; }
+#opac-auth .alert p { margin: 0; }
+#opac-auth form#auth { margin-top: 24px; }
+#opac-auth fieldset.brief, #opac-auth fieldset.action { border: 0; padding: 0; margin: 0; background: none; }
+#opac-auth .form-group { margin-bottom: 18px; }
+#opac-auth .form-group > label { display: block; font-weight: 600; font-size: .88rem; color: var(--navy); margin-bottom: 6px; }
+#opac-auth .form-control {
+  height: 50px; border: 1px solid #cfd7e1; border-radius: 10px; padding: 10px 14px 10px 44px; font-size: 1rem;
+  background: #fbfcfe no-repeat 15px center / 16px 16px;
+}
+#opac-auth .form-control:focus { border-color: var(--navy-3); background-color: #fff; box-shadow: 0 0 0 4px rgba(30,77,130,.15); outline: none; }
+#opac-auth #userid { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238a97a8'%3E%3Cpath d='M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5zm6 3a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm-4 9.5c0-2 2.7-3 4-3s4 1 4 3V18H5v-.5zM14 9h5v1.6h-5V9zm0 3.4h5V14h-5v-1.6z'/%3E%3C/svg%3E"); }
+#opac-auth #password { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238a97a8'%3E%3Cpath d='M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5zm-3 8V7a3 3 0 1 1 6 0v3H9zm3 4a1.5 1.5 0 0 1 .8 2.8V18h-1.6v-1.2A1.5 1.5 0 0 1 12 14z'/%3E%3C/svg%3E"); }
+#opac-auth .show-password-toggle { display: flex; align-items: center; gap: 6px; margin-top: 8px; }
+#opac-auth .show-password-toggle-label { font-size: .86rem; font-weight: 400; color: var(--muted); margin: 0; cursor: pointer; }
+#opac-auth input[type="submit"].btn-primary {
+  width: 100%; height: 52px; margin-top: 4px; border: 0; border-radius: 10px;
+  background: var(--gold); color: var(--navy); font-weight: 700; font-size: 1.02rem; letter-spacing: .02em; transition: background .15s;
+}
+#opac-auth input[type="submit"].btn-primary:hover, #opac-auth input[type="submit"].btn-primary:focus { background: #d8b23a; color: var(--navy); }
+#opac-auth #forgotpassword, #opac-auth #registrationinstructions { margin-top: 12px; text-align: center; font-size: .9rem; }
+#opac-auth #forgotpassword p, #opac-auth #registrationinstructions p { margin: 0; }
+
+.nvc-login-help { margin: 20px 0 0; padding: 12px 14px; background: #f4f7fb; border-radius: 10px; font-size: .86rem; line-height: 1.5; color: var(--muted); }
+.nvc-login-help i { color: var(--navy-3); margin-right: 4px; }
+.nvc-login-help b { color: var(--navy); }
+
+/* Welcome panel (moved beside the form by OPACUserJS) */
+.nvc-login-aside {
+  display: flex; flex-direction: column; padding: 44px 40px 32px; color: #cfdbea;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(201,162,39,.22), transparent 45%),
+    radial-gradient(circle at 0% 100%, rgba(255,255,255,.06), transparent 50%),
+    linear-gradient(150deg, var(--navy) 0%, var(--navy-3) 100%);
+}
+#opac-auth .nvc-login-aside { border-radius: 12px; margin-top: 20px; }   /* fallback if the script does not run */
+.nvc-login-aside__eyebrow { font: 700 .72rem "Inter", sans-serif; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+.nvc-login-aside h2 { color: #fff; font-size: 1.55rem; line-height: 1.25; margin: 8px 0 10px; }
+.nvc-login-aside__lead { margin: 0 0 24px; font-size: .95rem; }
+.nvc-login-perks { list-style: none; margin: 0 0 26px; padding: 0; display: grid; gap: 16px; }
+.nvc-login-perks li { display: flex; gap: 14px; align-items: flex-start; }
+.nvc-login-perks i { width: 38px; height: 38px; flex: none; border-radius: 9px; background: rgba(255,255,255,.09); color: var(--gold); display: grid; place-items: center; font-size: .92rem; }
+.nvc-login-perks span { font-size: .88rem; line-height: 1.45; }
+.nvc-login-perks b { display: block; color: #fff; font-weight: 600; font-size: .95rem; }
+.nvc-login-aside__foot { margin-top: auto; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.14); font-size: .85rem; }
+.nvc-login-aside__foot p { margin: 0 0 6px; }
+.nvc-login-aside__foot b { color: #fff; }
+.nvc-login-aside__foot i { color: var(--gold); margin-right: 6px; }
+.nvc-login-aside a { color: #fff; text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+
+/* Pop-up login box (top-bar link on other pages) */
+#loginModal .nvc-login-aside { display: none; }
+#loginModal .modal-content { border: 0; border-radius: 14px; overflow: hidden; }
+#loginModal .modal-header { background: var(--navy); border: 0; }
+#loginModal .modal-header .modal-title, #loginModal .modal-header h1, #loginModal .modal-header h2 { color: #fff; font-size: 1.15rem; }
+#loginModal .modal-header .btn-close { filter: invert(1) grayscale(1) brightness(2); }
+#loginModal .btn-primary { background: var(--gold); border-color: var(--gold); color: var(--navy); font-weight: 700; }
+#loginModal .nvc-login-help { margin-top: 14px; }
+
+/* ---------- Inner pages polish ---------- */
+.main { border-radius: var(--radius); border: 1px solid var(--line); box-shadow: none; }
+.btn-primary { background: var(--navy-2); border-color: var(--navy-2); }
+.btn-primary:hover { background: var(--navy); border-color: var(--navy); }
+#opac-main-search.mastheadsearch, .mastheadsearch { background: var(--navy-2); }
+.results_summary .label { text-transform: uppercase; font-size: .74rem; letter-spacing: .05em; color: var(--muted); }
+
+/* ---------- Footer ---------- */
+#opaccredits { margin: 0 -12px; }
+.nvc-footer { background: var(--navy); color: #b9c8db; font-size: .87rem; margin-top: 0; }
+.nvc-footer__grid { display: grid; grid-template-columns: 1.4fr 1fr 1.2fr; gap: 40px; padding-top: 32px; padding-bottom: 24px; }
+.nvc-footer h5 { color: #fff; font-family: "Inter", sans-serif; font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; margin: 0 0 10px; }
+.nvc-footer p { margin: 0 0 8px; }
+.nvc-footer ul { list-style: none; margin: 0; padding: 0; }
+.nvc-footer li { margin-bottom: 5px; }
+.nvc-footer a { color: #e6edf5; text-decoration: none; }
+.nvc-footer a:hover { color: var(--gold); }
+.nvc-footer__person { margin: 0 0 4px; }
+.nvc-footer__person b { display: block; color: #fff; }
+.nvc-footer__ids { font-size: .8rem; margin: 0 0 8px; color: #8ea2ba; }
+.nvc-footer__ids a { color: var(--gold); }
+.nvc-footer__ids a:hover { color: #fff; }
+.nvc-footer__name { font-family: "Source Serif 4", Georgia, serif; color: #fff; font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
+.nvc-footer__bar { border-top: 1px solid rgba(255,255,255,.1); }
+.nvc-footer__bar .nvc-wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding-top: 12px; padding-bottom: 12px; font-size: .8rem; color: #8ea2ba; }
+
+/* ---------- Tablet ---------- */
+@media (max-width: 991px) {
+  .nvc-brand__contact { display: none; }
+  .nvc-services { grid-template-columns: repeat(2, 1fr); }
+  .nvc-panels, .nvc-panels--2, .nvc-faq, .nvc-research { grid-template-columns: 1fr; }
+  .nvc-login { grid-template-columns: 1fr; }
+  .nvc-login > #opac-auth { order: -1; }   /* form first on small screens */
+  .nvc-eres { grid-template-columns: repeat(2, 1fr); }
+  .nvc-footer__grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .nvc-footer__grid > div:first-child { grid-column: 1 / -1; }
+
+  /* Collapsible menu */
+  .nvc-nav .nvc-wrap { flex-direction: column; align-items: stretch; padding: 0; }
+  .nvc-nav__toggle {
+    display: flex; align-items: center; justify-content: space-between; width: 100%;
+    background: none; border: 0; color: #fff; font: 600 .95rem "Inter", sans-serif; padding: 13px 20px; cursor: pointer;
+  }
+  .nvc-nav__toggle .bars { font-size: 1.15rem; }
+  .nvc-nav__list { display: none; flex-direction: column; border-top: 1px solid rgba(255,255,255,.12); }
+  .nvc-nav.is-open .nvc-nav__list { display: flex; }
+  .nvc-nav__list a { padding: 12px 20px; border-bottom: 1px solid rgba(255,255,255,.07); border-left: 3px solid transparent; }
+  .nvc-nav__list a.is-active { border-bottom-color: rgba(255,255,255,.07); border-left-color: var(--gold); background: rgba(255,255,255,.05); }
+}
+
+/* ---------- Phone ---------- */
+@media (max-width: 600px) {
+  body { font-size: 15px; }
+  .nvc-wrap { padding: 0 16px; }
+  #OpacMainUserBlock .nvc-wrap { padding: 0 4px; }
+  .nvc-brand .nvc-wrap { gap: 12px; padding-top: 12px; padding-bottom: 12px; }
+  .nvc-crest { width: 50px; height: 50px; }
+  .nvc-brand__name { font-size: 1.08rem; }
+  .nvc-brand__sub { font-size: .68rem; letter-spacing: .1em; }
+  .nvc-hero { padding: 34px 0 38px; }
+  .nvc-hero p.lead { font-size: .97rem; margin-bottom: 20px; }
+  .nvc-search { flex-direction: column; border-radius: 8px; }
+  .nvc-search select { flex: none; padding: 13px 14px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .nvc-search input { padding: 14px; }
+  .nvc-search button { justify-content: center; padding: 14px; }
+  .nvc-hero__links { gap: 8px; }
+  .nvc-hero__links a { padding: 6px 12px; font-size: .82rem; }
+  .nvc-section { padding-top: 32px; }
+  .nvc-section__head h3 { font-size: 1.25rem; }
+  .nvc-services { grid-template-columns: 1fr; gap: 10px; }
+  .nvc-service { padding: 16px; }
+  .nvc-eres { grid-template-columns: 1fr; }
+  .nvc-panel { padding: 20px; }
+  .nvc-footer__grid { grid-template-columns: 1fr; gap: 18px; padding-top: 26px; }
+  .nvc-repo__list { grid-template-columns: 1fr; }
+  .nvc-section__head { flex-direction: column; align-items: flex-start; }
+  #opac-login-page .main { padding: 20px 0 32px; }
+  .nvc-login { border-radius: 12px; }
+  .nvc-login > #opac-auth { padding: 28px 22px 24px; }
+  .nvc-login-aside { padding: 26px 22px 22px; }
+  .nvc-login-aside h2 { font-size: 1.25rem; }
+  .nvc-login-aside__lead { margin-bottom: 18px; }
+}
